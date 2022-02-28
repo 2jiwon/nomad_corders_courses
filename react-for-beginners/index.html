@@ -14,13 +14,17 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    const Container = () => (
-      <div>
-        <h3>Total clicks: 0</h3>
-        <button>Click me</button>
-      </div>
-    );
+    const App = () => {
+      let data = React.useState(0);
+      console.log(data);
+      return (
+        <div>
+          <h3>Total clicks: 0</h3>
+          <button>Click me</button>
+        </div>
+      );
+    };
 
-    ReactDOM.render(<Container />, root);
+    ReactDOM.render(<App />, root);
   </script>
 </html>
