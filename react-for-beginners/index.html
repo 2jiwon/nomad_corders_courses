@@ -13,15 +13,18 @@
   ></script>
   <script>
     const root = document.getElementById("root");
-    const h3 = React.createElement(
-      "h3",
-      { id: "sexy-span", style: { color: "red" } },
-      "Hello, I am a span."
+    const h3 = (
+      <h3 id="sexy-span" style={{ color: "red" }}>
+        Hello, I am H3
+      </h3>
     );
-    const btn = React.createElement(
-      "button",
-      { onClick: () => console.log("I am clicked") },
-      "Click me"
+    const btn = (
+      <button
+        style={{ backgroundColor: "tomato" }}
+        onClick={() => console.log("I am clicked")}
+      >
+        Click me
+      </button>
     );
     const container = React.createElement("div", null, [h3, btn]);
 
