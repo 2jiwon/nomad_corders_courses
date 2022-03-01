@@ -24,7 +24,7 @@
         setMinutes(0);
       }
       function onFlip() {
-        setFlipped(!flipped);
+        setFlipped((current) => !current);
       }
       return (
         <div>
