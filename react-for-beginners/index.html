@@ -14,7 +14,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    const App = () => {
+    const MinutesToHours = () => {
       const [amount, setAmount] = React.useState();
       const [inverted, setInverted] = React.useState(false);
       function onChange(event) {
@@ -29,7 +29,6 @@
       }
       return (
         <div>
-          <h3>Super Converter</h3>
           <div>
             <label htmlFor="minutes">Minutes </label>
             <input
@@ -40,6 +39,8 @@
               onChange={onChange}
               disabled={inverted}
             />
+          </div>
+          <div>
             <label htmlFor="hours">Hours </label>
             <input
               id="hours"
@@ -54,6 +55,14 @@
           <button onClick={onInvert}>
             {inverted ? "Turn back" : "Invert"}
           </button>
+        </div>
+      );
+    };
+    const App = () => {
+      return (
+        <div>
+          <h3>Super Converter</h3>
+          <MinutesToHours />
         </div>
       );
     };
