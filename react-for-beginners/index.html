@@ -45,7 +45,8 @@
               id="hours"
               type="number"
               placeholder="Hours"
-              value={Math.round(minutes / 60)}
+              value={flipped ? minutes : Math.round(minutes / 60)}
+              onChange={onChange}
               disabled={flipped === false}
             />
           </div>
