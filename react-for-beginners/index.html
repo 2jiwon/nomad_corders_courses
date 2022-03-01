@@ -37,6 +37,7 @@
               placeholder="Minutes"
               value={minutes}
               onChange={onChange}
+              disabled={flipped === true}
             />
             <h4>You want to convert {minutes}</h4>
             <label htmlFor="hours">Hours </label>
@@ -45,7 +46,7 @@
               type="number"
               placeholder="Hours"
               value={Math.round(minutes / 60)}
-              disabled
+              disabled={flipped === false}
             />
           </div>
           <button onClick={reset}>Reset</button>
