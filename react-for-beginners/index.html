@@ -51,7 +51,9 @@
             />
           </div>
           <button onClick={reset}>Reset</button>
-          <button onClick={onInvert}>Invert</button>
+          <button onClick={onInvert}>
+            {inverted ? "Turn back" : "Invert"}
+          </button>
         </div>
       );
     };
