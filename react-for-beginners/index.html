@@ -13,8 +13,19 @@
   ></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
+    const SaveBtn = () => {
+      return <button>Save Changes</button>;
+    };
+    const ConfirmBtn = () => {
+      return <button>Confirm</button>;
+    };
     const App = () => {
-      return <div></div>;
+      return (
+        <div>
+          <SaveBtn />
+          <ConfirmBtn />
+        </div>
+      );
     };
 
     const root = document.getElementById("root");
