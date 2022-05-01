@@ -13,7 +13,7 @@
   ></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const Btn = ({ text, big }) => {
+    const Btn = ({ text }) => {
       return (
         <button
           style={{
@@ -22,7 +22,6 @@
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-            fontSize: big ? 18 : 14,
           }}
         >
           {text}
@@ -32,8 +31,8 @@
     const App = () => {
       return (
         <div>
-          <Btn text="Save Changes" big={true} />
-          <Btn text="Confirm" big={false} />
+          <Btn text="Save Changes" />
+          <Btn text="Confirm" />
         </div>
       );
     };
