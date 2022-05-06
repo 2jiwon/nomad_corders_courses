@@ -3,9 +3,14 @@ import Button from "./Button";
 import styles from "./App.module.css";
 
 function Hello() {
-  useEffect(() => {
-    console.log("Hello runs.");
-  }, []);
+  function Hi() {
+    console.log("Created :)");
+    return Bye;
+  }
+  function Bye() {
+    console.log("Destroyed :(");
+  }
+  useEffect(Hi, []);
   return (<h1>Hello</h1>);
 }
 function App() {
