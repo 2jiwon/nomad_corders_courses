@@ -23,6 +23,11 @@ function App() {
         <input type="text" value={todo} placeholder="Write your to do..." onChange={onChange} />
         <button>Add To Do</button>
       </form>
+      <ul>
+        {todos.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
