@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Movie from '../components/Movie';
 import PropTypes from 'prop-types';
+import "../styles/styles.css";
 
 function Home() {
     const [loading, setLoading] = useState(false);
@@ -17,15 +18,16 @@ function Home() {
     }, []);
     console.log(movies);
     return (
-        <div>
+        <div className='bg'>
             {loading ?
-                <div>{movies.map((movie) =>
+                <div className='container'>{movies.map((movie) =>
                     <Movie key={movie.id}
                         id={movie.id}
                         title={movie.title}
                         coverImg={movie.medium_cover_image}
                         genres={movie.genres}
-                        summary={movie.summary} />
+                        year={movie.year}
+                        runtime={movie.runtime} />
                 )}
                 </div> : <h2>Loading...</h2>
             }
@@ -37,7 +39,8 @@ Movie.propTypes = {
     id: PropTypes.number.isRequired,
     coverImg: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    runtime: PropTypes.number.isRequired,
     genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
