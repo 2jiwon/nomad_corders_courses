@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Movie from './Movie';
+import PropTypes from 'prop-types';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -29,6 +30,13 @@ function App() {
       }
     </div>
   );
+}
+
+Movie.PropTypes = {
+  coverImg = PropTypes.string.isRequired,
+  title = PropTypes.string.isRequired,
+  summary = PropTypes.string.isRequired,
+  genres = PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default App;
