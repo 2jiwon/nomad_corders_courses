@@ -21,6 +21,7 @@ function Home() {
             {loading ?
                 <div>{movies.map((movie) =>
                     <Movie key={movie.id}
+                        id={movie.id}
                         title={movie.title}
                         coverImg={movie.medium_cover_image}
                         genres={movie.genres}
@@ -33,6 +34,7 @@ function Home() {
 }
 
 Movie.propTypes = {
+    id: PropTypes.number.isRequired,
     coverImg: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
