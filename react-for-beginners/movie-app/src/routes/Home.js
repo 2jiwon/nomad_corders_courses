@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Movie from '../components/Movie';
 import PropTypes from 'prop-types';
-import "../styles/styles.css";
+import SearchAppBar from '../components/AppBar';
 
 function Home() {
     const [loading, setLoading] = useState(false);
@@ -18,9 +18,10 @@ function Home() {
     }, []);
     console.log(movies);
     return (
-        <div className='bg'>
+        <div>
+            <SearchAppBar />
             {loading ?
-                <div className='container'>{movies.map((movie) =>
+                <div>{movies.map((movie) =>
                     <Movie key={movie.id}
                         id={movie.id}
                         title={movie.title}
