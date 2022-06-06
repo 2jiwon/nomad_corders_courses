@@ -7,3 +7,5 @@ nomad corders 코스들 메모와 소스 코드
 ## [쉽고 빠른 Go 강좌](./go_projects)
 
 ## [ReactJS로 영화 웹서비스 만들기](./react-for-beginners/)
+
+## [NextJS 시작하기](./begin-next-js/)
