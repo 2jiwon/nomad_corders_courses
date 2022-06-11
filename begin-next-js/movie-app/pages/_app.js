@@ -1,9 +1,12 @@
+import Layout from "../components/Layout";
 import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
     return (
         <div>
-            <Component {...pageProps} />
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
             <span>Hello</span>
         </div>
     )
