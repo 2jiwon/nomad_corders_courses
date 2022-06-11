@@ -16,7 +16,12 @@ export default function Home() {
   }, []);
   const router = useRouter();
   const onClick = (id) => {
-    router.push(`/movies/${id}`);
+    router.push({
+      pathname: `/movies/${id}`,
+      query: {
+        title: "Banana",
+      },
+    }, `/movies/${id}`);
   }
   return (
     <div className="container">
