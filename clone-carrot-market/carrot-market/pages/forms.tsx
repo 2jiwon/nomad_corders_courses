@@ -11,8 +11,13 @@ export default function Forms() {
         placeholder="Username"
         required
       />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
+      <input {...register("email")} type="email" placeholder="Email" required />
+      <input
+        {...register("password")}
+        type="password"
+        placeholder="Password"
+        required
+      />
       <input type="submit" value="Create Account" />
     </form>
   );
