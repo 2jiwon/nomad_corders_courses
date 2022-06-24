@@ -19,7 +19,9 @@ export default function Home() {
       {!billions && <h4>Loading...</h4>}
       {billions.map((billionaire) => (
         <div key={billionaire.id}>
+          <img src={billionaire.squareImage} />
           <h4>{billionaire.name}</h4>
+          <p>{Math.round(billionaire.netWorth / 1000)} Billion / {billionaire.industries}</p>
         </div>
       ))}
     </div>
