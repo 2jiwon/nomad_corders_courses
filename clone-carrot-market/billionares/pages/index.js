@@ -9,9 +9,9 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       const results = await (
-        await fetch("https://billions-api.nomadcoders.workers.dev/")
+        await fetch("https://billions-api.nomadcoders.workers.dev")
       ).json();
-      //console.log(results);
+      console.log(results);
       setBillions(results);
     })();
   }, []);
