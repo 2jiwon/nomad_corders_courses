@@ -6,6 +6,7 @@ interface InputProps {
   kind?: "text" | "phone" | "price";
   register: UseFormRegisterReturn;
   type: string;
+  required: boolean;
 }
 
 export default function Input({
@@ -14,6 +15,7 @@ export default function Input({
   kind = "text",
   register,
   type,
+  required,
 }: InputProps) {
   return (
     <div>
@@ -27,9 +29,10 @@ export default function Input({
         <div className="rounded-md relative flex items-center shadow-sm">
           <input
             id={name}
-            {...register}
             type={type}
             className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+            required={required}
+            {...register}
           />
         </div>
       ) : null}
@@ -40,9 +43,10 @@ export default function Input({
           </div>
           <input
             id={name}
-            {...register}
             type={type}
             className="appearance-none pl-7 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:ring-orange-500 focus:border-orange-500"
+            required={required}
+            {...register}
           />
           <div className="absolute right-0 pointer-events-none pr-3 flex items-center">
             <span className="text-gray-500">KRW</span>
@@ -56,9 +60,10 @@ export default function Input({
           </span>
           <input
             id={name}
-            {...register}
             type={type}
             className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md rounded-l-none shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+            required={required}
+            {...register}
           />
         </div>
       ) : null}
