@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 export default function Detail() {
     const router = useRouter();
-    console.log(router);
     const { id } = router.query;
-    console.log(id);
 
+    // information of one billionaire
     const [billion, setBillion] = useState({});
+    // for Financial Assets
     const [assets, setAssets] = useState([]);
     useEffect(() => {
         (async () => {
@@ -20,7 +20,7 @@ export default function Detail() {
     }, []);
 
     return (
-        <div className="container billion">
+        <div className="container">
             <Seo title="Detail" />
             <img src={billion.squareImage} />
             <h2>{billion.name}</h2>
@@ -32,26 +32,24 @@ export default function Detail() {
             </div>
             <div>
                 <h2>Financial Assets</h2>
-                {assets.map((asset, i) => (
-                    <div key={i} className="asset">
-                        <ul>
-                            <li>Ticker: {asset.ticker}</li>
-                            <li>Shares: {Number(asset.numberOfShares).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</li>
-                            {asset.exerciseOptionPrice ? <li>Exercise Price: ${asset.exerciseOptionPrice}</li> : ""}
-                        </ul>
-                    </div>
-                ))}
+                <div className="asset">
+                    {assets.map((asset, i) => (
+                        <div key={i}>
+                            <ul>
+                                <li>Ticker: {asset.ticker}</li>
+                                <li>Shares: {Number(asset.numberOfShares).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</li>
+                                {asset.exerciseOptionPrice ? <li>Exercise Price: ${asset.exerciseOptionPrice}</li> : ""}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
             </div>
             <style jsx>{`
                 .container {
                     padding: 20px;
-                    background-color: #000;
-                    color: white;
                 }
-                .billion img {
+                img {
                     max-width: 100%;
-                    border-radius: 12px;
-                    transition: transform 0.2s ease-in-out;
                     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
                 }
                 .asset {
@@ -59,7 +57,10 @@ export default function Detail() {
                     grid-template-columns: repeat(auto-fill, minmax(25%, auto));
                     padding: 20px;
                     gap: 20px;
+                }
+                .asset div {
                     border: 1px solid #ccc;
+                    border-radius: 12px;
                 }
                 .asset ul {
                     list-style-type: none;
