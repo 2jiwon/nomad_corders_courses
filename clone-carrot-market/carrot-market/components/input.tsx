@@ -14,7 +14,6 @@ export default function Input({
   kind = "text",
   register,
   type,
-  ...rest
 }: InputProps) {
   return (
     <div>
@@ -29,7 +28,7 @@ export default function Input({
           <input
             id={name}
             {...register}
-            {...rest}
+            type={type}
             className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
           />
         </div>
@@ -42,7 +41,7 @@ export default function Input({
           <input
             id={name}
             {...register}
-            {...rest}
+            type={type}
             className="appearance-none pl-7 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:ring-orange-500 focus:border-orange-500"
           />
           <div className="absolute right-0 pointer-events-none pr-3 flex items-center">
@@ -58,7 +57,7 @@ export default function Input({
           <input
             id={name}
             {...register}
-            {...rest}
+            type={type}
             className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md rounded-l-none shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
           />
         </div>
