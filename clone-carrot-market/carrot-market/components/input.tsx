@@ -1,8 +1,11 @@
+import type { UseFormRegisterReturn } from "react-hook-form";
+
 interface InputProps {
   label: string;
   name: string;
   kind?: "text" | "phone" | "price";
-  [key: string]: any;
+  // [key: string]: any;
+  register: UseFormRegisterReturn;
 }
 
 export default function Input({
