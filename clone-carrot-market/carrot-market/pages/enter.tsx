@@ -11,7 +11,7 @@ interface EnterForm {
 }
 
 const Enter: NextPage = () => {
-  const { register, watch, reset, handleSubmit } = useForm<EnterForm>();
+  const { register, reset, handleSubmit } = useForm<EnterForm>();
   const [method, setMethod] = useState<"email" | "phone">("email");
   const onEmailClick = () => {
     reset();
@@ -21,7 +21,6 @@ const Enter: NextPage = () => {
     reset();
     setMethod("phone");
   };
-  // console.log(watch());
   const onValid = (data: EnterForm) => {
     console.log(data);
   };
