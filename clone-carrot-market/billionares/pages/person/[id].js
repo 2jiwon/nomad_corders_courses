@@ -20,7 +20,7 @@ export default function Detail() {
     }, []);
 
     return (
-        <div>
+        <div className="container billion">
             <Seo title="Detail" />
             <img src={billion.squareImage} />
             <h2>{billion.name}</h2>
@@ -32,13 +32,41 @@ export default function Detail() {
             </div>
             <div>
                 <h2>Financial Assets</h2>
-                {assets.map((as, i) => (
-                    <div key={i}>
-                        <p>Ticker: {as.ticker}</p>
-                        <p>Shares: {as.numberOfShares}</p>
+                {assets.map((asset, i) => (
+                    <div key={i} className="asset">
+                        <ul>
+                            <li>Ticker: {asset.ticker}</li>
+                            <li>Shares: {Number(asset.numberOfShares).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</li>
+                            {asset.exerciseOptionPrice ? <li>Exercise Price: ${asset.exerciseOptionPrice}</li> : ""}
+                        </ul>
                     </div>
                 ))}
             </div>
+            <style jsx>{`
+                .container {
+                    padding: 20px;
+                    background-color: #000;
+                    color: white;
+                }
+                .billion img {
+                    max-width: 100%;
+                    border-radius: 12px;
+                    transition: transform 0.2s ease-in-out;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                }
+                .asset {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(25%, auto));
+                    padding: 20px;
+                    gap: 20px;
+                    border: 1px solid #ccc;
+                }
+                .asset ul {
+                    list-style-type: none;
+                    line-height: 200%;
+                }
+            `}
+            </style>
         </div>
     );
 }
