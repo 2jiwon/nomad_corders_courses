@@ -4,12 +4,22 @@ interface LoginForm {
   username: string;
   password: string;
   email: string;
+  errors: string;
 }
 
 export default function Forms() {
-  const { register, handleSubmit } = useForm<LoginForm>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    setError,
+  } = useForm<LoginForm>({
+    mode: "onChange",
+  });
   const onValid = (data: LoginForm) => {
     console.log("I'm valid");
+    setError("errors", { message: "Backend is offline." });
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
@@ -44,8 +54,11 @@ export default function Forms() {
         })}
         type="email"
         placeholder="Email"
+        className={`${Boolean(errors.email?.message) ? "border-red-500" : ""}`}
       />
+      {errors.email?.message}
       <input type="submit" value="Create Account" />
+      {errors.errors?.message}
     </form>
   );
 }
