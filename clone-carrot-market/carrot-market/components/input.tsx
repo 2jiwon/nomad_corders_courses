@@ -4,7 +4,6 @@ interface InputProps {
   label: string;
   name: string;
   kind?: "text" | "phone" | "price";
-  // [key: string]: any;
   register: UseFormRegisterReturn;
   type: string;
 }
@@ -14,6 +13,7 @@ export default function Input({
   name,
   kind = "text",
   register,
+  type,
   ...rest
 }: InputProps) {
   return (
