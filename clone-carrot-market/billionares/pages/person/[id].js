@@ -22,7 +22,7 @@ export default function Detail() {
     return (
         <div className="container">
             <Seo title="Detail" />
-            <img src={billion.squareImage} />
+            <img src={billion.squareImage} alt={billion.name} />
             <h2>{billion.name}</h2>
             <div>
                 <p>Networth: {Math.round(billion.netWorth / 1000)} Billion</p>

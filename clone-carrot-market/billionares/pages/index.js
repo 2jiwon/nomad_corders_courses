@@ -28,7 +28,7 @@ export default function Home() {
       {!billions && <h4>Loading...</h4>}
       {billions.map((billionaire) => (
         <div onClick={() => onClick(billionaire.id)} key={billionaire.id}>
-          <img src={billionaire.squareImage.includes('undefined') ? `https://via.placeholder.com/416x416.png?text=${billionaire.name}` : billionaire.squareImage} />
+          <img alt={billionaire.name} src={billionaire.squareImage.includes('undefined') ? `https://via.placeholder.com/416x416.png?text=${billionaire.name}` : billionaire.squareImage} />
           <h4>
             <Link href={`/person/${billionaire.id}`}>
               <a>{billionaire.name}</a>
