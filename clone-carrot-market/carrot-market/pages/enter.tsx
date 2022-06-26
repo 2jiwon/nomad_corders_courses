@@ -11,10 +11,11 @@ interface EnterForm {
 }
 
 const Enter: NextPage = () => {
-  const { register } = useForm<EnterForm>();
+  const { register, watch } = useForm<EnterForm>();
   const [method, setMethod] = useState<"email" | "phone">("email");
   const onEmailClick = () => setMethod("email");
   const onPhoneClick = () => setMethod("phone");
+  console.log(watch());
   return (
     <div className="mt-16 px-4">
       <h3 className="text-3xl font-bold text-center">Enter to Carrot</h3>
