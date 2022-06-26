@@ -6,6 +6,7 @@ interface InputProps {
   kind?: "text" | "phone" | "price";
   // [key: string]: any;
   register: UseFormRegisterReturn;
+  type: string;
 }
 
 export default function Input({
