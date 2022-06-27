@@ -4,7 +4,9 @@ module.exports = {
     "./pages/**.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'sans': ['Helvetica', 'Arial', 'sans-serif'],
+    },
   },
   plugins: [],
 }
