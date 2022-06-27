@@ -210,7 +210,6 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-
           <div className="grid grid-rows-1 place-items-center mx-4">
             <button className="bg-blue-700 rounded-lg text-center w-full text-white font-extrabold align-middle py-3">
               Let's get it done
@@ -220,12 +219,59 @@ const Home: NextPage = () => {
         {/* 두번째 div End */}
 
         {/* 세번째 div */}
-        <div className="bg-yellow-400 w-4/5 h-full px-5 pt-10 md:mr-4 lg:mr-32">
-          <div>〈</div>
-          <h1>Friends</h1>
-          <div>
-            <div>Search with love</div>
-            <div></div>
+        <div className="bg-yellow-400 w-4/5 h-full px-5 md:mr-4 lg:mr-32">
+          <div className="grid grid-cols-3 place-content-center">
+            <div className="bg-white my-10 border-black border-solid border-2 border-b-4 rounded-full w-14 h-14">
+              <h1 className="text-4xl text-center mt-1">〈</h1>
+            </div>
+            <div className="place-self-center">
+              <h1 className="text-center font-extrabold text-3xl">Friends</h1>
+            </div>
+          </div>
+
+          <div className="grid grid-rows-6 gap-2">
+            <div className="relative">
+              <input
+                className="w-full h-16 bg-white rounded-xl text-left text-xl px-5 border-black border-solid border-2 border-b-4 placeholder:text-black placeholder:font-semibold placeholder:font-[montserrat]"
+                type="text"
+                placeholder="Search with love ..."
+              />
+              <svg
+                className="absolute w-8 h-8 right-0 -mt-12 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </div>
+            <div className="bg-white border-black border-solid border-2 rounded-xl w-full h-20 p-3">
+              <div className="flex flex-cols-3 ml-5">
+                <div className="bg-red-500 rounded-full w-14 h-14 border-black border-solid border-2">
+                  <svg
+                    className="w-12 h-12"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    ></path>
+                  </svg>
+                </div>
+                <h1>Bill Rizer</h1>
+              </div>
+            </div>
             <div></div>
             <div></div>
             <div></div>
