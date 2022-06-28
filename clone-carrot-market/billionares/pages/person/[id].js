@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function Detail() {
     const router = useRouter();
     const { id } = router.query;
+    // const id = router.query.id;
 
     // information of one billionaire
     const [billion, setBillion] = useState({});
@@ -33,7 +34,7 @@ export default function Detail() {
             <div>
                 <h2>Financial Assets</h2>
                 <div className="asset">
-                    {assets.map((asset, i) => (
+                    {assets?.map((asset, i) => (
                         <div key={i}>
                             <ul>
                                 <li>Ticker: {asset.ticker}</li>
