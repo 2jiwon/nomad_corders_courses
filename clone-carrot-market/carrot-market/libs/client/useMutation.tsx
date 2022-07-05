@@ -26,5 +26,5 @@ export default function useMutation(
       .finally(() => setState(false));
   }
   // 반환값 1은 function, 2는 object
-  return [mutation, { loading, data, error }];
+  return [mutation, state];
 }
