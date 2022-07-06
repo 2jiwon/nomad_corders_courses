@@ -12,7 +12,7 @@ export default function useMutation(
     error: undefined,
   });
   function mutation(data: any) {
-    setState(true);
+    setState((prev) => ({ ...prev, loading: true }));
     fetch(url, {
       method: "POST",
       headers: {
@@ -21,9 +21,9 @@ export default function useMutation(
       body: JSON.stringify(data),
     })
       .then((response) => response.json().catch(() => {}))
-      .then((json) => setState(json))
-      .catch((error) => setState(error))
-      .finally(() => setState(false));
+      .then((data) => setState((prev) => ({ ...prev, data })))
+      .catch((error) => setState((prev) => ({ ...prev, error })))
+      .finally(() => setState((prev) => ({ ...prev, loading: false })));
   }
   // 반환값 1은 function, 2는 object
   return [mutation, state];
