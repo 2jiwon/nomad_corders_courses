@@ -46,6 +46,7 @@ const Enter: NextPage = () => {
   const onTokenValid = (validForm: TokenForm) => {
     // console.log(validForm);
     if (tokenLoading) return;
+    confirmToken(validForm);
   };
 
   return (
@@ -66,7 +67,7 @@ const Enter: NextPage = () => {
               type="number"
               required
             />
-            <Button text={loading ? "Loading..." : "Confirm Token"} />
+            <Button text={loading ? "Token Loading..." : "Confirm Token"} />
           </form>
         ) : (
           <>
