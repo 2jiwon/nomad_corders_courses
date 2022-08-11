@@ -27,6 +27,7 @@ class BlockChain {
   constructor() {
     this.blocks = [];
   }
+
   private getPrevHash() {
     if (this.blocks.length === 0) return "";
     return this.blocks[this.blocks.length - 1].hash;
@@ -35,4 +36,16 @@ class BlockChain {
     const block = new Block(this.getPrevHash(), this.blocks.length + 1, data);
     this.blocks.push(block);
   }
+  public getBlocks() {
+    return [...this.blocks];
+  }
 }
+
+const blockchain = new BlockChain();
+blockchain.addBlock("First one");
+blockchain.addBlock("Second one");
+blockchain.addBlock("Third one");
+
+// blockchain.getBlocks().push(new Block("xxxx", 1111, "HACKEDDDDD"));
+
+console.log(blockchain.getBlocks());
