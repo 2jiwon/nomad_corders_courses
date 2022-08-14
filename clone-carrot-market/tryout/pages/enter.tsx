@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { FieldErrors, useForm } from "react-hook-form";
 import Input from "../components/input";
+import { useRouter } from "next/router";
 
 const Enter: NextPage = () => {
   const {
@@ -8,9 +9,23 @@ const Enter: NextPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const router = useRouter();
 
-  const onValid = () => {
-    console.log("valid");
+  const onValid = async (data) => {
+    // console.log(data);
+    const result = await (
+      await fetch("/api/users", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    ).json();
+    console.log(result);
+    if (result.ok) {
+      router.push("/");
+    }
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log("invalid");
