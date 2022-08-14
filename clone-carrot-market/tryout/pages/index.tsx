@@ -11,5 +11,8 @@ export default () => (
     <Link href="/form">
       <a>Form</a>
     </Link>
+    <Link href="/enter">
+      <a>Enter</a>
+    </Link>
   </div>
 );
