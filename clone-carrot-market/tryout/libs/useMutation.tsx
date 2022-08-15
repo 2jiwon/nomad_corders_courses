@@ -3,8 +3,8 @@ import { useState } from "react";
 export default function useMutation(
   url: string
 ): [(data?: any) => void, { result: undefined | any; error: undefined | any }] {
-  const [result, setResult] = useState({});
-  const [error, setError] = useState({});
+  const [result, setResult] = useState(undefined);
+  const [error, setError] = useState(undefined);
 
   function mutation(data: any) {
     console.log(url);

@@ -11,13 +11,17 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { username, email, password } = req.body;
   let user;
 
+  console.log("email: ", email);
+
   // signin일때
-  if (email === "" && username && password) {
+  if (!email && username && password) {
     user = await client.user.findUnique({
       where: {
         username,
       },
     });
+
+    console.log("user:", user);
 
     // 해당하는 사용자가 없음
     if (!user) {

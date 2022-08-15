@@ -2,13 +2,8 @@ import type { NextPage } from "next";
 import { FieldErrors, useForm } from "react-hook-form";
 import Input from "../components/input";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMutation from "../libs/useMutation";
-
-interface SelectForm {
-  signin?: string;
-  signup?: string;
-}
 
 const Enter: NextPage = () => {
   const {
@@ -31,10 +26,14 @@ const Enter: NextPage = () => {
   const onValid = async (data) => {
     console.log(data);
     enter(data);
-    console.log(result);
+  };
 
+  useEffect(() => {
     if (result != undefined) {
+      console.log("result: ", result);
+
       if (result.ok) {
+        alert("success");
         router.push("/");
       } else if (!result.user) {
         alert("Your account doesn't exist. Please sign up first.");
@@ -45,7 +44,7 @@ const Enter: NextPage = () => {
         router.push("/enter");
       }
     }
-  };
+  }, [result]);
 
   const onInvalid = (errors: FieldErrors) => {
     console.log("invalid");
