@@ -3,6 +3,7 @@ import { FieldErrors, useForm } from "react-hook-form";
 import Input from "../components/input";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import useMutation from "../libs/useMutation";
 
 interface SelectForm {
   signin?: string;
@@ -17,6 +18,8 @@ const Enter: NextPage = () => {
     formState: { errors },
   } = useForm();
 
+  const [enter, { result, error }] = useMutation("/api/users");
+
   // sing-in인지 sign-up인지 선택
   const [method, setMethod] = useState<"signin" | "signup">("signin");
   const onSingUp = () => {
@@ -27,15 +30,7 @@ const Enter: NextPage = () => {
   const router = useRouter();
   const onValid = async (data) => {
     console.log(data);
-    const result = await (
-      await fetch("/api/users", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-    ).json();
+    enter(data);
     console.log(result);
     if (result.ok) {
       router.push("/");
