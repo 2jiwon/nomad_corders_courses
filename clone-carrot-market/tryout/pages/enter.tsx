@@ -32,15 +32,18 @@ const Enter: NextPage = () => {
     console.log(data);
     enter(data);
     console.log(result);
-    if (result.ok) {
-      router.push("/");
-    } else if (!result.user) {
-      alert("Your account doesn't exist. Please sign up first.");
-      reset();
-      setMethod("signup");
-    } else if (!result.password) {
-      alert("Wrong password. Please try again.");
-      router.push("/enter");
+
+    if (result != undefined) {
+      if (result.ok) {
+        router.push("/");
+      } else if (!result.user) {
+        alert("Your account doesn't exist. Please sign up first.");
+        reset();
+        setMethod("signup");
+      } else if (!result.password) {
+        alert("Wrong password. Please try again.");
+        router.push("/enter");
+      }
     }
   };
 
