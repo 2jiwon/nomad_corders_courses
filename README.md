@@ -8,6 +8,8 @@ nomad corders 코스들 메모와 소스 코드
 
 ## [ReactJS로 영화 웹서비스 만들기](./react-for-beginners/)
 
+## [Typescript로 블록체인 만들기](./typescript-for-beginners/)
+
 ## [NextJS 시작하기](./begin-next-js/)
 
 ## [캐럿마켓 클론코딩](./clone-carrot-market/)
