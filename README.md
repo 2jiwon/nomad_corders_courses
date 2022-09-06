@@ -6,7 +6,9 @@ nomad corders 코스들 메모와 소스 코드
 
 ## [쉽고 빠른 Go 강좌](./go_projects)
 
-## [ReactJS로 영화 웹서비스 만들기](./react-for-beginners/)
+## [ReactJS로 영화 웹서비스 만들기(2021 Ver.)](./react-for-beginners/)
+
+## [ReactJS로 영화 웹서비스 만들기(2020 Ver.)](./react-for-beginners-2020/)
 
 ## [Typescript로 블록체인 만들기](./typescript-for-beginners/)
 
