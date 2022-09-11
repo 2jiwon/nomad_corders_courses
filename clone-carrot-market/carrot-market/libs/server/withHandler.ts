@@ -8,13 +8,13 @@ export interface ResponseType {
 interface ConfigType {
   method: "GET" | "POST" | "DELETE";
   handler: (req: NextApiRequest, res: NextApiResponse) => void;
-  isPrivate: boolean;
+  isPrivate?: boolean;
 }
 
 export default function withHandler({
   method,
   handler,
-  isPrivate,
+  isPrivate = true,
 }: ConfigType) {
   return async function (
     req: NextApiRequest,
