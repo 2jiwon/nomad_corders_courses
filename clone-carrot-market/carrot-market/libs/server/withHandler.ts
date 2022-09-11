@@ -7,11 +7,15 @@ export interface ResponseType {
 
 interface ConfigType {
   method: "GET" | "POST" | "DELETE";
-  fn: (req: NextApiRequest, res: NextApiResponse) => void;
+  handler: (req: NextApiRequest, res: NextApiResponse) => void;
   isPrivate: boolean;
 }
 
-export default function withHandler({ method, fn, isPrivate }: ConfigType) {
+export default function withHandler({
+  method,
+  handler,
+  isPrivate,
+}: ConfigType) {
   return async function (
     req: NextApiRequest,
     res: NextApiResponse
@@ -23,7 +27,7 @@ export default function withHandler({ method, fn, isPrivate }: ConfigType) {
       return res.status(401).json({ ok: false });
     }
     try {
-      await fn(req, res);
+      await handler(req, res);
     } catch (error) {
       console.log(error);
       return res.status(500).json({ error });
