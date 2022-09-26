@@ -5,8 +5,8 @@ import Layout from "@components/layout";
 import useUser from "@libs/client/useUser";
 
 const Home: NextPage = () => {
-  const user = useUser();
-  console.log(user);
+  const { user, isLoading } = useUser();
+  // console.log(user);
   return (
     <Layout hasTabBar title="홈">
       <div className="flex flex-col space-y-5 divide-y">
