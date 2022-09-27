@@ -4,6 +4,7 @@ import Input from "@components/input";
 import Layout from "@components/layout";
 import TextArea from "@components/textarea";
 import { useForm } from "react-hook-form";
+import useMutation from "@libs/client/useMutation";
 
 interface UploadProductForm {
   name: string;
@@ -13,8 +14,12 @@ interface UploadProductForm {
 
 const Upload: NextPage = () => {
   const { register, handleSubmit } = useForm<UploadProductForm>();
+  const [uploadProduct, { loading, data }] = useMutation("/api/products");
   const onValid = (data: UploadProductForm) => {
-    console.log(data);
+    // 아직 로딩중이면 함수를 끝냄
+    if (loading) return;
+    // 로딩 중이 아니라면 uploadProduct 를 실행
+    uploadProduct(data);
   };
   return (
     <Layout canGoBack title="Upload Product">
@@ -59,7 +64,7 @@ const Upload: NextPage = () => {
           name="description"
           label="Description"
         />
-        <Button text="Upload item" />
+        <Button text={loading ? "Loading..." : "Upload item"} />
       </form>
     </Layout>
   );
