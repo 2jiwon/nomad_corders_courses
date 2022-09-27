@@ -13,9 +13,12 @@ interface UploadProductForm {
 
 const Upload: NextPage = () => {
   const { register, handleSubmit } = useForm<UploadProductForm>();
+  const onValid = (data: UploadProductForm) => {
+    console.log(data);
+  };
   return (
     <Layout canGoBack title="Upload Product">
-      <form className="p-4 space-y-4">
+      <form className="p-4 space-y-4" onSubmit={handleSubmit(onValid)}>
         <div>
           <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-oragne-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
             <svg
@@ -36,14 +39,14 @@ const Upload: NextPage = () => {
           </label>
         </div>
         <Input
-          register={register("name")}
+          register={register("name", { required: true })}
           required
           label="Name"
           name="name"
           type="text"
         />
         <Input
-          register={register("price")}
+          register={register("price", { required: true })}
           required
           label="Price"
           name="price"
@@ -51,7 +54,7 @@ const Upload: NextPage = () => {
           kind="price"
         />
         <TextArea
-          register={register("description")}
+          register={register("description", { required: true })}
           required
           name="description"
           label="Description"
